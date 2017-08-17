@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sehangat Asmara</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+
+        <div class="jumbotron  jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3">Sehangat Asmara</h1>
+                <p class="lead">
+                    <span class="text-muted">by</span> Aisha Sofea
+                </p>
+                <p class="lead"><a class="btn btn-primary btn-lg" href="//arai.space/tjplayer.php?id=c7eedd4e7520ca22&t=Jsmv8TK" target="iframe_a" role="button">Episod 1</a></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="list-group  js-episodes"></div>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript">
+        var dataSummon = $.ajax('_data.json');
+        dataSummon.done(function(data) {
+
+            if (!Object.keys(data).length) return;
+
+            var $list = $('.js-episodes');
+            $.each(data, function(key, item) {
+                $list.append('<a href="'+ item.url +'" class="list-group-item list-group-item-action" target="iframe_a">Episod '+ item.episode +'</a>');
+            });
+        });
+        </script>
+    </body>
+</html>
